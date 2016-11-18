@@ -228,9 +228,9 @@
     <Compile Include="Migrations\201611151338520_address_user.Designer.cs">
       <DependentUpon>201611151338520_address_user.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201611181049263_offers.cs" />
-    <Compile Include="Migrations\201611181049263_offers.Designer.cs">
-      <DependentUpon>201611181049263_offers.cs</DependentUpon>
+    <Compile Include="Migrations\201611181329057_PullRequest1.cs" />
+    <Compile Include="Migrations\201611181329057_PullRequest1.Designer.cs">
+      <DependentUpon>201611181329057_PullRequest1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -335,8 +335,8 @@
     <EmbeddedResource Include="Migrations\201611151338520_address_user.resx">
       <DependentUpon>201611151338520_address_user.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611181049263_offers.resx">
-      <DependentUpon>201611181049263_offers.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611181329057_PullRequest1.resx">
+      <DependentUpon>201611181329057_PullRequest1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
