@@ -16,7 +16,6 @@ namespace Gas_Station.Models
             // Add custom user claims here
             return userIdentity;
         }
-        public IdentityRole Role { get; set; }
         public float Latitude { get; set; }
         public float Longitude { get; set; }
         public string Address { get; set; }

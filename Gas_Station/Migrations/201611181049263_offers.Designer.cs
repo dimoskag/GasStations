@@ -7,13 +7,13 @@ namespace Gas_Station.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class UserRole2 : IMigrationMetadata
+    public sealed partial class offers : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UserRole2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(offers));
         
         string IMigrationMetadata.Id
         {
-            get { return "201611181019195_UserRole2"; }
+            get { return "201611181049263_offers"; }
         }
         
         string IMigrationMetadata.Source
