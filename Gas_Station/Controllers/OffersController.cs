@@ -10,7 +10,7 @@ using Gas_Station.Models;
 
 namespace Gas_Station.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class OffersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
