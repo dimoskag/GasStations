@@ -12,9 +12,9 @@
     @using (Html.BeginForm())
     {
     <p>
-       @Html.TextBox("id") 
+       @Html.TextBox("id")
         Municipality: @Html.DropDownList("selectMun", "All")
-        <input type="submit" value="Search" />
+        <button class="button" style="vertical-align:middle"><span>Search </span></button>
     </p>
     }
     
