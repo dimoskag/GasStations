@@ -89,8 +89,8 @@ namespace Gas_Station.Controllers
         }
 
         // GET: GasStations/Create
-
         [Authorize(Roles = "Admin")]
+
         public ActionResult Create()
         {
             return View();

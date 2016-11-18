@@ -16,9 +16,47 @@ namespace Gas_Station.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Offers
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string id, string selectOff)
         {
-            return View(db.Offers.ToList());
+            IEnumerable<Offer> offers = db.Offers.Include(x => x.GasStation).ToList();
+            string searchString = id;
+            var Offlist = new List<string>();
+            var OffQry = from x in db.Offers orderby x.Type select x.Type;
+            Offlist.AddRange(OffQry.Distinct());
+            ViewBag.selectOff = new SelectList(Offlist);
+
+            ViewBag.PriceSort = String.IsNullOrEmpty(sortOrder) ? "price_desc" : "";
+            ViewBag.DateSort = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewBag.TypeSort = sortOrder == "Type" ? "Type_desc" : "Type";
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                offers = offers.Where(x => x.Type.Contains(searchString) || x.GasStation.Name.Contains(searchString) || x.Description.Contains(searchString));
+            }
+
+            if (!String.IsNullOrEmpty(selectOff))
+            {
+                offers = offers.Where(x => x.Type == selectOff);
+            }
+
+            switch (sortOrder)
+            {
+                case "price_desc":
+                    offers = offers.OrderByDescending(x => x.Price);
+                    break;
+                case "date_desc":
+                    offers = offers.OrderByDescending(x => x.DateExpired);
+                    break;
+                case "Date":
+                    offers = offers.OrderBy(x => x.DateExpired);
+                    break;
+                default:
+                    offers = offers.OrderBy(x => x.Price);
+                    break;
+            }
+
+
+            return View(offers);
         }
 
         // GET: Offers/Details/5
