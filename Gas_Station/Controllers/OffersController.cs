@@ -10,7 +10,7 @@ using Gas_Station.Models;
 
 namespace Gas_Station.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class OffersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -75,6 +75,7 @@ namespace Gas_Station.Controllers
         }
 
         // GET: Offers/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -85,6 +86,7 @@ namespace Gas_Station.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "Id,Type,Description,Price,DateCreated,DateExpired")] Offer offer)
         {
             if (ModelState.IsValid)
@@ -98,6 +100,7 @@ namespace Gas_Station.Controllers
         }
 
         // GET: Offers/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -117,6 +120,7 @@ namespace Gas_Station.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "Id,Type,Description,Price,DateCreated,DateExpired")] Offer offer)
         {
             if (ModelState.IsValid)
@@ -129,6 +133,7 @@ namespace Gas_Station.Controllers
         }
 
         // GET: Offers/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -146,6 +151,7 @@ namespace Gas_Station.Controllers
         // POST: Offers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             Offer offer = db.Offers.Find(id);

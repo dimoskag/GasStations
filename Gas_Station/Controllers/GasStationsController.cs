@@ -89,6 +89,7 @@ namespace Gas_Station.Controllers
         }
 
         // GET: GasStations/Create
+        [Authorize(Roles = "Admin")]
 
         public ActionResult Create()
         {
@@ -113,6 +114,7 @@ namespace Gas_Station.Controllers
         }
 
         // GET: GasStations/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -132,6 +134,7 @@ namespace Gas_Station.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "Id,County,CountyID,Municipality,DepId,Dep,Address,Brand,Latitude,Longitude,Price,PriceUpdate,FuelType,Name,Phone")] GasStation gasStation)
         {
             if (ModelState.IsValid)
@@ -144,6 +147,7 @@ namespace Gas_Station.Controllers
         }
 
         // GET: GasStations/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -161,6 +165,7 @@ namespace Gas_Station.Controllers
         // POST: GasStations/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             GasStation gasStation = db.GasStations.Find(id);
