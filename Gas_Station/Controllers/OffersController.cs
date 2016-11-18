@@ -10,7 +10,7 @@ using Gas_Station.Models;
 
 namespace Gas_Station.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class OffersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -86,7 +86,6 @@ namespace Gas_Station.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "Id,Type,Description,Price,DateCreated,DateExpired")] Offer offer)
         {
             if (ModelState.IsValid)
