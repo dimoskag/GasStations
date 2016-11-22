@@ -245,6 +245,10 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\energy-fuel-gas-gasoline-oil-petrol-icon-png-10.png" />
+    <Content Include="Content\images\Fuel-Logo.png" />
+    <Content Include="Content\images\fueleconomy.jpg" />
+    <Content Include="Content\images\ico.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
